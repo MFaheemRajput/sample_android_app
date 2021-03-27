@@ -1,0 +1,162 @@
+//{
+//  "meta": {
+//    "code": 200
+//    "requestId": "605f090fe5e3e248fa0de8f9"
+//  }
+//  "notifications": [
+//    {
+//      "type": "notificationTray"
+//      "item": {
+//        "unreadCount": 0
+//      }
+//    }
+//  ]
+//  "response": {
+//    "venues": [
+//      {
+//        "id": "4bcca12bb6c49c7422169491"
+//        "name": "86th Floor Observation Deck"
+//        "contact": {
+//          "phone": "+12127363100"
+//          "formattedPhone": "+1 212-736-3100"
+//        }
+//        "location": {
+//          "address": "350 5th Ave"
+//          "crossStreet": "btwn 33rd & 34th Sts"
+//          "lat": 40.74844544481811
+//          "lng": -73.98568124187432
+//          "labeledLatLngs": [
+//            "0": {
+//              "label": "display"
+//              "lat": 40.74844544481811
+//              "lng": -73.98568124187432
+//            }
+//          ]
+//          "distance": 5
+//          "postalCode": "10118"
+//          "cc": "US"
+//          "city": "New York"
+//          "state": "NY"
+//          "country": "United States"
+//          "formattedAddress": [
+//            "0": "350 5th Ave (btwn 33rd & 34th Sts)"
+//            "1": "New York, NY 10118"
+//            "2": "United States"
+//          ]
+//        }
+//        "categories": [
+//          "0": {
+//            "id": "4bf58dd8d48988d165941735"
+//            "name": "Scenic Lookout"
+//            "pluralName": "Scenic Lookouts"
+//            "shortName": "Scenic Lookout"
+//            "icon": {
+//              "prefix": "https://ss3.4sqi.net/img/categories_v2/parks_outdoors/sceniclookout_"
+//              "suffix": ".png"
+//            }
+//            "primary": true
+//          }
+//        ]
+//        "verified": true
+//        "stats": {
+//          "tipCount": 242
+//          "usersCount": 21792
+//          "checkinsCount": 23718
+//        }
+//        "beenHere": {
+//          "lastCheckinExpiredAt": 0
+//        }
+//        "venuePage": {
+//          "id": "64514350"
+//        }
+//        "hereNow": {
+//          "count": 0
+//          "summary": "Nobody here"
+//          "groups": [
+//          ]
+//        }
+//        "referralId": "v-1616840976"
+//        "venueChains": [
+//        ]
+//        "hasPerk": false
+//      }
+//      {
+//        "id": "43695300f964a5208c291fe3"
+//        "name": "Empire State Building"
+//        "contact": {
+//          "phone": "+12127363100"
+//          "formattedPhone": "+1 212-736-3100"
+//          "twitter": "empirestatebldg"
+//          "instagram": "empirestatebldg"
+//          "facebook": "153817204635459"
+//          "facebookUsername": "empirestatebuilding"
+//          "facebookName": "Empire State Building"
+//        }
+//        "location": {
+//          "address": "350 5th Ave"
+//          "crossStreet": "btwn 33rd & 34th St"
+//          "lat": 40.7485995507123
+//          "lng": -73.98580648682452
+//          "distance": 23
+//          "postalCode": "10118"
+//          "cc": "US"
+//          "neighborhood": "Midtown Manhattan, New York, NY"
+//          "city": "New York"
+//          "state": "NY"
+//          "country": "United States"
+//          "formattedAddress": [
+//            "0": "350 5th Ave (btwn 33rd & 34th St)"
+//            "1": "New York, NY 10118"
+//            "2": "United States"
+//          ]
+//        }
+//        "categories": [
+//          "0": {
+//            "id": "4bf58dd8d48988d130941735"
+//            "name": "Building"
+//            "pluralName": "Buildings"
+//            "shortName": "Building"
+//            "icon": {
+//              "prefix": "https://ss3.4sqi.net/img/categories_v2/building/default_"
+//              "suffix": ".png"
+//            }
+//            "primary": true
+//          }
+//        ]
+//        "verified": true
+//        "stats": {
+//          "tipCount": 1164
+//          "usersCount": 140345
+//          "checkinsCount": 202731
+//        }
+//        "url": "https://www.esbnyc.com"
+//        "venueRatingBlacklisted": true
+//        "beenHere": {
+//          "lastCheckinExpiredAt": 0
+//        }
+//        "venuePage": {
+//          "id": "64514349"
+//        }
+//        "storeId": ""
+//        "hereNow": {
+//          "count": 1
+//          "summary": "One other person is here"
+//          "groups": [
+//            "0": {
+//              "type": "others"
+//              "name": "Other people here"
+//              "count": 1
+//              "items": [
+//              ]
+//            }
+//          ]
+//        }
+//        "referralId": "v-1616840976"
+//        "venueChains": [
+//        ]
+//        "hasPerk": false
+//      }
+//    ]
+//    "confident": false
+//  }
+//}

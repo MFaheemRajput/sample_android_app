@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="venue"
+            type="nl.enochtech.testappaa.feature.venue_list.data.Venue" />
+        <variable
+            name="position"
+            type="Integer" />
+        <variable
+            name="adapter"
+            type="nl.enochtech.testappaa.feature.venue_list.adapter.VenueAdapter" />
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:onClick="@{()-> adapter.onCardClicked(venue,position)}"
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/title"
+        android:text="@{venue.name}"
+        android:hint="Dummy Title"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:padding="8dp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@id/title"
+        app:layout_constraintEnd_toEndOf="@id/title"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        android:id="@+id/address"
+
+        android:maxLines="3"
+        android:ellipsize="end"
+        android:hint="This is test address for above item. This is test address for above item. This is test address for above item."
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:paddingHorizontal="8dp"
+
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
