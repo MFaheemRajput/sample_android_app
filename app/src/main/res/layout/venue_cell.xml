@@ -14,7 +14,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:onClick="@{()-> adapter.onCardClicked(venue,position)}"
+    android:onClick="@{()-> adapter.onCardClicked(venue, position)}"
     >
 
     <TextView
@@ -38,7 +38,7 @@
         app:layout_constraintEnd_toEndOf="@id/title"
         app:layout_constraintTop_toBottomOf="@id/title"
         android:id="@+id/address"
-
+        app:setFormattedaddress="@{venue.location}"
         android:maxLines="3"
         android:ellipsize="end"
         android:hint="This is test address for above item. This is test address for above item. This is test address for above item."

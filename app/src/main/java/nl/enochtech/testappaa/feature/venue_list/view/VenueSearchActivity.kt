@@ -1,6 +1,7 @@
 package nl.enochtech.testappaa.feature.venue_list.view
 
 import android.app.Activity
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
@@ -9,7 +10,6 @@ import android.view.KeyEvent
 import android.view.inputmethod.EditorInfo
 import android.widget.TextView
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -18,8 +18,8 @@ import nl.enochtech.testappaa.core.api.StatusEnum
 import nl.enochtech.testappaa.core.base.BaseActivity
 import nl.enochtech.testappaa.core.utils.*
 import nl.enochtech.testappaa.databinding.ActivityVenueSearchBinding
+import nl.enochtech.testappaa.feature.venue_detail.view.VenueDetailActivity
 import nl.enochtech.testappaa.feature.venue_list.adapter.VenueAdapter
-import nl.enochtech.testappaa.feature.venue_list.data.Location
 import nl.enochtech.testappaa.feature.venue_list.data.Venue
 import nl.enochtech.testappaa.feature.venue_list.viewmodel.SearchVenueViewModel
 
@@ -30,24 +30,17 @@ class VenueSearchActivity : BaseActivity() , VenueAdapter.VenueClickListener {
     private lateinit var venueAdapter: VenueAdapter
     private lateinit var viewModel: SearchVenueViewModel
 
-    fun dummyData(){
-        for ( i in 0..9){
-            this.venueList.add(Venue("$i", "New park $i", Location(0.0,0.0, arrayListOf("a","b","c")) ))
-        }
-    }
-
     fun searchVenueApiCall(){
         if (isNetworkConnected()){
             viewModel.getVenues(binding.searchEdittext.text.toString())
         } else {
             this.showShortToast("No Internet Connection")
-
+            binding.progress.makeGone()
         }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-       // this.dummyData()
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_venue_search)
         this.viewModel = ViewModelProvider(this)[SearchVenueViewModel::class.java]
@@ -64,20 +57,24 @@ class VenueSearchActivity : BaseActivity() , VenueAdapter.VenueClickListener {
         venueAdapter.notifyDataSetChanged()
         binding.noDataAvailableText.makeGone()
 
+        viewModel.getVenuesFromRepo()!!.observe(this, {
+            this.venueList.clear()
+            this.venueList.addAll(it)
+            this.venueAdapter.notifyDataSetChanged()
+        })
+
         viewModel.getApiStatus().observe(this, Observer { apiStatus ->
             kotlin.run {
-
                 when(apiStatus.statusEnum){
-
                     StatusEnum.LOADING -> {
 
 
                     }
 
                     StatusEnum.SUCCESS -> {
-
+                         this.venueList.clear()
                          this.venueList.addAll(ArrayList(JsonManager.getInstance().fromJsonList(apiStatus.data.toString())))
-                         this.venueAdapter.notifyDataSetChanged()
+                         this.viewModel.setVenuesInRepo(this.venueList)
                          binding.progress.makeGone()
                          binding.noDataAvailableText.makeGone()
                     }
@@ -133,11 +130,9 @@ class VenueSearchActivity : BaseActivity() , VenueAdapter.VenueClickListener {
 
     }
 
-
-
     override fun onCardClicked(position: Int) {
-
-
-
+        if(!venueList[position].id.isNullOrEmpty()){
+            startActivity(Intent(this, VenueDetailActivity::class.java).putExtra("VENUE",venueList[position]))
+        }
     }
 }

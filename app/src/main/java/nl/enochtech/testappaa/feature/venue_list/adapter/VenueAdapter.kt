@@ -29,6 +29,7 @@ class VenueAdapter(private val list: ArrayList<Venue>, private var itemClickList
 
     override fun onBindViewHolder(holder: ClassVH, position: Int) {
         val item: Venue = list[position]
+
         holder.bind(item, position)
     }
 

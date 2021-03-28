@@ -54,7 +54,6 @@ object ApiClient {
                 .client(okHttpClient)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build().create(RemoteApiService::class.java)
-
         }
 
 }
