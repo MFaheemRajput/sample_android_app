@@ -5,10 +5,10 @@ import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Headers
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface RemoteApiService {
-    @Headers("Content-Type:application/x-www-form-urlencoded")
     @GET("venues/search")
     fun getSearchedVenues(
         @Query("v") v: Int,
@@ -17,6 +17,15 @@ interface RemoteApiService {
         @Query("client_id") client_id: String,
         @Query("client_secret") client_secret: String,
     ): Call<ApiResponse>
+
+    @GET("venues/{venue_id}")
+    fun getVenueDetail(
+            @Path("venue_id") venue_id: String,
+            @Query("v") v: Int,
+            @Query("client_id") client_id: String,
+            @Query("client_secret") client_secret: String,
+    ): Call<ApiResponse>
+
 }
 
 //curl -X GET -G \

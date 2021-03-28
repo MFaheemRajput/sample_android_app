@@ -4,6 +4,7 @@ import android.app.Activity
 import android.app.Application
 import android.os.Bundle
 import android.view.WindowManager
+import com.facebook.stetho.Stetho
 
 class MyApplication : Application() {
 
@@ -15,6 +16,10 @@ class MyApplication : Application() {
         fun applicationContext(): MyApplication {
             return instance as MyApplication
         }
+    }
 
+    override fun onCreate() {
+        super.onCreate()
+        Stetho.initializeWithDefaults(this)
     }
 }

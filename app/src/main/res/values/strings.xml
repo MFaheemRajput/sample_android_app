@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">TestAppAA</string>
     <string name="start_searching">Search venues</string>
+    <string name="getting_detials">Getting Details</string>
+    <string name="short_url">Short URL</string>
+    <string name="contact">Contact</string>
+    <string name="description">Description</string>
+    <string name="address">Address</string>
+    <string name="verified">Verified</string>
 </resources>

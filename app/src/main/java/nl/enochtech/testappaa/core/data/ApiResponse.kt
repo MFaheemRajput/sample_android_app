@@ -5,10 +5,10 @@ import com.google.gson.annotations.SerializedName
 
 
 class ApiResponse {
-
     @SerializedName("response")
     @Expose
     var response: Object?? = null
+
 
 }
 
