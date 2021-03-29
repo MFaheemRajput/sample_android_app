@@ -30,6 +30,7 @@ android {
             buildConfigField "String", "API_BASE_URL", '"https://api.foursquare.com/v2/"'
             buildConfigField "String", "CLIENT_ID", '"SJAW2NU0GPGXP1UKMA1EQJZNAHIJL5XX2CHQNY3EQEZQ31F3"'
             buildConfigField "String", "CLIENT_SECRET", '"TLRRRXOKSGV4H2MFEFR4EMS2CTKDWRPIZAG0GVKWWDWUGCUY"'
+            buildConfigField "String", "MS_APP_CENTRE", '"ddbcb256-c95d-4e80-9b48-e095e62ffd91"'
 
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
@@ -37,6 +38,7 @@ android {
         }
         debug {
 
+            buildConfigField "String", "MS_APP_CENTRE", '"ddbcb256-c95d-4e80-9b48-e095e62ffd91"'
             buildConfigField "String", "API_BASE_URL", '"https://api.foursquare.com/v2/"'
             buildConfigField "String", "CLIENT_ID", '"SJAW2NU0GPGXP1UKMA1EQJZNAHIJL5XX2CHQNY3EQEZQ31F3"'
             buildConfigField "String", "CLIENT_SECRET", '"TLRRRXOKSGV4H2MFEFR4EMS2CTKDWRPIZAG0GVKWWDWUGCUY"'
@@ -98,5 +100,9 @@ dependencies {
     implementation 'androidx.room:room-ktx:2.2.6'
     kapt 'androidx.room:room-compiler:2.2.6'
     implementation 'com.facebook.stetho:stetho:1.5.1'
+
+    def appCenterSdkVersion = '4.1.0'
+    implementation "com.microsoft.appcenter:appcenter-analytics:${appCenterSdkVersion}"
+    implementation "com.microsoft.appcenter:appcenter-crashes:${appCenterSdkVersion}"
 
 }

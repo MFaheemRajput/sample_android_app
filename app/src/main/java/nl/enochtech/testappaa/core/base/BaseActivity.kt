@@ -5,9 +5,10 @@ import android.content.Context
 import android.content.Intent
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import nl.enochtech.testappaa.R
+import com.microsoft.appcenter.AppCenter
+import com.microsoft.appcenter.analytics.Analytics
+import com.microsoft.appcenter.crashes.Crashes
 import nl.enochtech.testappaa.core.Constants
 import nl.enochtech.testappaa.core.network.ConnectionLiveData
 
@@ -24,6 +25,10 @@ open class BaseActivity : AppCompatActivity() {
     override fun onStart() {
         registerNetworkCallback(this)
         super.onStart()
+        AppCenter.start(
+            application, "ddbcb256-c95d-4e80-9b48-e095e62ffd91",
+            Analytics::class.java, Crashes::class.java
+        )
     }
 
     protected fun isNetworkConnected(): Boolean{
