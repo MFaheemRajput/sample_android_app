@@ -7,6 +7,7 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.microsoft.appcenter.AppCenter
+import com.microsoft.appcenter.BuildConfig
 import com.microsoft.appcenter.analytics.Analytics
 import com.microsoft.appcenter.crashes.Crashes
 import nl.enochtech.testappaa.core.Constants
