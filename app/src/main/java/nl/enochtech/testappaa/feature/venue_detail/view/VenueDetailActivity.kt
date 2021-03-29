@@ -50,6 +50,13 @@ class VenueDetailActivity : BaseActivity() {
         bindData()
         detailVenueApiCall()
 
+        viewModel.getVenueDetailFromRepo(this.venueDetail.id)!!.observe(this, {
+            if(it != null){
+                this.venueDetail = it
+                bindData()
+            }
+        })
+
         viewModel.getApiStatus().observe(this, Observer { apiStatus ->
             kotlin.run {
                 when(apiStatus.statusEnum){
@@ -61,6 +68,7 @@ class VenueDetailActivity : BaseActivity() {
 
                     StatusEnum.SUCCESS -> {
                         venueDetail = JsonManager.getInstance().fromJson(apiStatus.data.toString())
+                        this.viewModel.setVenueDetailInRepo(venueDetail)
                         bindData()
                         binding.progress.makeGone()
                         binding.noDataAvailableText.makeGone()

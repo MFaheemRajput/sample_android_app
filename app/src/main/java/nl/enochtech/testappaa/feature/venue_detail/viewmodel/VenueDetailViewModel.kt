@@ -3,6 +3,7 @@ package nl.enochtech.testappaa.feature.venue_detail.viewmodel
 import android.app.Application
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.google.gson.Gson
@@ -13,6 +14,10 @@ import nl.enochtech.testappaa.core.api.ApiClient
 import nl.enochtech.testappaa.core.api.ApiStatus
 import nl.enochtech.testappaa.core.api.StatusEnum
 import nl.enochtech.testappaa.core.data.ApiResponse
+import nl.enochtech.testappaa.feature.venue_detail.data.VenueDetail
+import nl.enochtech.testappaa.feature.venue_list.data.Venue
+import nl.enochtech.testappaa.feature.venue_list.repository.VenueDetailRepository
+import nl.enochtech.testappaa.feature.venue_list.repository.VenueListRepository
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -20,9 +25,17 @@ import retrofit2.Response
 class VenueDetailViewModel (application: Application): AndroidViewModel(application) {
     private var apiStatusObject: ApiStatus? = null
     private val apiStatus = MutableLiveData<ApiStatus>()
+    private val repository: VenueDetailRepository = VenueDetailRepository(application)
+
     fun getApiStatus(): MutableLiveData<ApiStatus> { return apiStatus }
 
+    fun getVenueDetailFromRepo(id:String): LiveData<VenueDetail>?{
+        return repository.getVenueDetail(id)
+    }
 
+    fun setVenueDetailInRepo(venueDetail:VenueDetail){
+        repository.saveVenueDetail(venueDetail)
+    }
 
     fun getVenueDetail(venueId:String){
         viewModelScope.launch(Dispatchers.IO) {
